@@ -4,6 +4,24 @@
 
 local config = {}
 
+function config.mason_nvim()
+  require("mason").setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+  })
+end
+
+function config.mason_lspconfig_nvim()
+  require("mason-lspconfig").setup({
+    ensure_plugins = { "sumneko_lua", "rust_analyzer" }
+  })
+end
+
 function config.telescope()
   if not packer_plugins['plenary.nvim'].loaded then
     vim.cmd([[packadd plenary.nvim]])

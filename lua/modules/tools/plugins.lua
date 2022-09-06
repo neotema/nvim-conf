@@ -6,6 +6,22 @@ local plugin = require('core.pack').register_plugin
 local conf = require('modules.tools.config')
 
 plugin({
+  'williamboman/mason.nvim',
+  config = conf.mason_nvim,
+  requires = {
+    { 'williamboman/mason-lspconfig.nvim', opt = true },
+  }
+})
+
+plugin({
+  'williamboman/mason-lspconfig.nvim',
+  config = conf.mason_lspconfig_nvim,
+  requires = {
+    { 'neovim/nvim-lspconfig' },
+  }
+})
+
+plugin({
   'nvim-telescope/telescope.nvim',
   cmd = 'Telescope',
   config = conf.telescope,

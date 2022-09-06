@@ -25,6 +25,7 @@ function Packer:load_plugins()
   end
 
   local plugins_file = get_plugins_list()
+  print(plugins_file)
   for _, m in ipairs(plugins_file) do
     require(m)
   end
@@ -46,6 +47,9 @@ function Packer:load_packer()
       done_sym = '',
       removed_sym = '',
       moved_sym = 'ﰳ',
+    },
+    log = {
+      level = 'trace'
     },
   })
   packer.reset()
