@@ -37,12 +37,28 @@ local lsp_flags = {
 
 -- config server in this function
 function config.nvim_lsp()
+  require('modules.completion.lspconfig')
   require('lspconfig')['rust_analyzer'].setup({
     on_attach = on_attach,
     flags = lsp_flags,
     -- Server-specific settings...
     settings = {
-      ["rust-analyzer"] = {}
+      ["rust-analyzer"] = {
+        imports = {
+          granularity = {
+              group = "module",
+          },
+          prefix = "self",
+        },
+        cargo = {
+            buildScripts = {
+                enable = true,
+            },
+        },
+        procMacro = {
+            enable = true
+        },
+      }
     }
   })
 end
@@ -51,12 +67,33 @@ function config.nvim_cmp()
   local cmp = require('cmp')
 
   cmp.setup({
+    snippet = {
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      end,
+    },
     preselect = cmp.PreselectMode.Item,
     window = {
       completion = cmp.config.window.bordered(),
       documentation = cmp.config.window.bordered(),
     },
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' },
+    }, {{ name = 'buffer' }})
   })
+  -- Fixed column for diagnostics to appear
+-- Show autodiagnostic popup on cursor hover_range
+-- Goto previous / next diagnostic warning / error
+-- Show inlay_hints more frequently
+  vim.cmd([[
+  set signcolumn=yes
+  autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+  ]])
 end
 
 function config.lua_snip()

@@ -19,6 +19,10 @@ plugin({
   config = conf.nvim_cmp,
   requires = {
     { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-lspconfig' },
+    { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
+    { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'nvim-cmp' },
+    { 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' },
+    { 'hrsh7th/vim-vsnip', after = 'nvim-cmp' },
     { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
     { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
     { 'saadparwaiz1/cmp_luasnip', after = 'LuaSnip' },
