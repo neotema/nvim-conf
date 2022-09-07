@@ -35,6 +35,8 @@ nmap({
   { '<C-l>', '<C-w>l', opts(noremap) },
   { '<C-j>', '<C-w>j', opts(noremap) },
   { '<C-k>', '<C-w>k', opts(noremap) },
+  -- register floatterm shortcut
+  { '<C-]>', cmd('FloatermNew'), opts(noremap) },
 })
 
 imap({
