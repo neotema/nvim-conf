@@ -8,3 +8,8 @@ plugin({
     { 'nvim-lua/plenary.nvim', opt = true },
   }
 })
+
+plugin({
+  'terrortylor/nvim-comment',
+  config = conf.nvim_comment,
+})
