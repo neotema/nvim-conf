@@ -56,3 +56,5 @@ pack.ensure_plugins()
 require('core.options')
 pack.load_compile()
 require('keymap')
+
+vim.cmd([[autocmd VimEnter * NvimTreeToggle]])
