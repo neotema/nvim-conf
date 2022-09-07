@@ -49,7 +49,7 @@ function Packer:load_packer()
       moved_sym = 'ﰳ',
     },
     log = {
-      level = 'trace'
+      level = 'warn'
     },
   })
   packer.reset()

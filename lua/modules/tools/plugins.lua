@@ -31,3 +31,17 @@ plugin({
     { 'nvim-telescope/telescope-fzy-native.nvim', opt = true },
   },
 })
+
+plugin({
+  'windwp/nvim-autopairs',
+  config = conf.autopairs,
+})
+
+plugin({
+  'axieax/urlview.nvim',
+  config = conf.urlview,
+  after = 'telescope.nvim',
+  requires = {
+    {  'nvim-telescope/telescope.nvim' }
+  }
+})

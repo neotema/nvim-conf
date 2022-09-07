@@ -4,9 +4,12 @@
 
 local config = {}
 
-function config.zephyr()
-  vim.cmd('colorscheme zephyr')
+function config.tokyonight()
+  vim.cmd('colorscheme tokyonight-storm')
 end
+--function config.zephyr()
+--  vim.cmd('colorscheme zephyr')
+--end
 
 function config.galaxyline()
   require('modules.ui.eviline')
@@ -51,6 +54,8 @@ function config.nvim_tree()
     disable_netrw = false,
     hijack_cursor = true,
     hijack_netrw = true,
+    open_on_setup = true,
+    open_on_tab = true,
   })
 end
 

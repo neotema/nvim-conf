@@ -50,4 +50,18 @@ function config.telescope()
   require('telescope').load_extension('fzy_native')
 end
 
+function config.autopairs()
+  require('nvim-autopairs').setup()
+end
+
+function config.urlview()
+  if not packer_plugins['telescope'].loaded then
+      vim.cmd([[packeradd telescope.nvim]])
+  end
+  require('telescope').load_extension('urlview')
+  require('urlview').setup({
+    default_picker = 'telescope'
+  })
+end
+
 return config
