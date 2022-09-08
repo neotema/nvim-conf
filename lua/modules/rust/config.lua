@@ -1,6 +1,6 @@
 local config = {}
 
-function rust_tool_nvim()
+function config.rust_tool_nvim()
     -- if not packer_plugins['nvim-lspconfig.nvim'].loaded then
     --     vim.cmd([[packadd nvim-lspconfig.nvim]])
     -- end
