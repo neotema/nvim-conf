@@ -6,14 +6,15 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local rt = require("rust-tools")
-local rtdap = require("rust-tools.dap")
+-- local rtdap = require("rust-tools.dap")
 -- local extension_path = "$HOME/codelldb-x86/extension/"
-local extension_path = "/Users/arch/codelldb-x86/extension/"
-local codelldb_path = extension_path .. "adapter/codelldb"
-local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
+-- local extension_path = "/Users/arch/codelldb-x86/extension/"
+-- local codelldb_path = extension_path .. "adapter/codelldb"
+-- local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
 
 rt.setup({
   tools = {
+    executor = require("rust-tools/executors").toggleterm,
     inlay_hints = {
       auto = true,
       -- only_current_line = true,
@@ -24,6 +25,25 @@ rt.setup({
     on_initialized = function()
       ih.set_all()
     end,
+  },
+  hover_actions = {
+
+    -- the border that is used for the hover window
+    -- see vim.api.nvim_open_win()
+    border = {
+      { "╭", "FloatBorder" },
+      { "─", "FloatBorder" },
+      { "╮", "FloatBorder" },
+      { "│", "FloatBorder" },
+      { "╯", "FloatBorder" },
+      { "─", "FloatBorder" },
+      { "╰", "FloatBorder" },
+      { "│", "FloatBorder" },
+    },
+
+    -- whether the hover action window gets automatically focused
+    -- default: false
+    auto_focus = false,
   },
   server = {
     on_attach = function(client, bufnr)
@@ -44,11 +64,11 @@ rt.setup({
     end,
   },
   dap = {
-    -- adapter = {
-    --   type = "executable",
-    --   command = "lldb-vscode",
-    --   name = "rt_lldb",
-    -- },
-    adapter = rtdap.get_codelldb_adapter(codelldb_path, liblldb_path),
+    adapter = {
+      type = "executable",
+      command = "lldb-vscode",
+      name = "rt_lldb",
+    },
+    -- adapter = rtdap.get_codelldb_adapter(codelldb_path, liblldb_path),
   },
 })

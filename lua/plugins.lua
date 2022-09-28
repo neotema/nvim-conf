@@ -136,10 +136,11 @@ require("packer").startup(function(use)
   -- ts
   use("jose-elias-alvarez/typescript.nvim")
   -- rust
-  use("simrat39/rust-tools.nvim")
+  use("simrat39/rust-tools.nvim", {branch = "master"})
   use("simrat39/inlay-hints.nvim")
   use("lvimuser/lsp-inlayhints.nvim")
   -- Debugging
+  use("nvim-lua/plenary.nvim")
   use("mfussenegger/nvim-dap")
   use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
@@ -172,6 +173,9 @@ require("packer").startup(function(use)
   use("lewis6991/impatient.nvim")
   use({
     "NvChad/nvim-colorizer.lua",
+    {
+      branch = "master",
+    },
     config = function()
       require("colorizer").setup()
     end,

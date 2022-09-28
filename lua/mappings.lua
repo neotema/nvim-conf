@@ -71,7 +71,6 @@ inoremap("<C-BS>", "<C-\\><C-o>db")
 -- Symbols Outline
 nnoremap("<Leader>s", ":SymbolsOutline<CR>")
 
--- Comentary
 nnoremap("<space>/", '<cmd>lua require("utils/comment")()<CR>')
 vnoremap("<space>/", '<cmd>lua require("utils/comment")()<CR>')
 
