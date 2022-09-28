@@ -33,7 +33,7 @@ require("packer").startup(function(use)
   use({
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     config = function()
-      -- require("lsp_lines").setup()
+      require("lsp_lines").setup()
     end,
   })
 
@@ -136,7 +136,7 @@ require("packer").startup(function(use)
   -- ts
   use("jose-elias-alvarez/typescript.nvim")
   -- rust
-  use("simrat39/rust-tools.nvim", {branch = "master"})
+  use("simrat39/rust-tools.nvim", { branch = "master" })
   use("simrat39/inlay-hints.nvim")
   use("lvimuser/lsp-inlayhints.nvim")
   -- Debugging
@@ -173,9 +173,6 @@ require("packer").startup(function(use)
   use("lewis6991/impatient.nvim")
   use({
     "NvChad/nvim-colorizer.lua",
-    {
-      branch = "master",
-    },
     config = function()
       require("colorizer").setup()
     end,
@@ -239,4 +236,15 @@ require("packer").startup(function(use)
     end,
     ft = { "markdown" },
   })
+
+  -- Leetcode
+  -- use({ "ianding1/leetcode.vim" })  -- not working properly
+
+  -- pretty fold
+  -- use({
+  --   "anuvyklack/pretty-fold.nvim",
+  --   config = function()
+  --     require("pretty-fold").setup()
+  --   end,
+  -- })
 end)
