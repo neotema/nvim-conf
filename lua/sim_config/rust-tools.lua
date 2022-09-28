@@ -14,7 +14,7 @@ local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
 
 rt.setup({
   tools = {
-    executor = require("rust-tools/executors").toggleterm,
+    executor = require("rust-tools/executors").termopen,
     inlay_hints = {
       auto = true,
       -- only_current_line = true,

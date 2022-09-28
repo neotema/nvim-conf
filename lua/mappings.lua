@@ -103,11 +103,14 @@ inoremap(
 )
 
 -- Rust Tool
+nnoremap("<Leader>rd", ":RustDebuggables<CR>", true)
 
 nnoremap("<F5>", "<cmd>lua require'dap'.continue()<CR>", true)
 nnoremap("<F10>", "<cmd>lua require'dap'.step_over()<CR>", true)
-nnoremap("F11>", "<cmd>lua require'dap'.step_into()<CR>", true)
+nnoremap("<F11>", "<cmd>lua require'dap'.step_into()<CR>", true)
+nnoremap("<F8>", "<cmd>lua require'dap'.step_into()<CR>", true)
 nnoremap("<F12>", "<cmd>lua require'dap'.step_out()<CR>", true)
+nnoremap("<F9>", "<cmd>lua require'dap'.step_out()<CR>", true)
 nnoremap("<Leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", true)
 nnoremap(
   "<Leader>B",
