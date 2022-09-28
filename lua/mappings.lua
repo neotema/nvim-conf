@@ -14,6 +14,10 @@ local vnoremap = function(lhs, rhs)
   vim.api.nvim_set_keymap("v", lhs, rhs, { noremap = true })
 end
 
+-- save file changes
+nnoremap("<C-s>", ":w<CR>", true)
+inoremap("<C-s>", ":w<CR>", true)
+
 -- smartquit
 nnoremap("qq", '<cmd>lua require("utils/smartquit")()<CR>', true)
 
@@ -104,7 +108,6 @@ inoremap(
 
 -- Rust Tool
 nnoremap("<Leader>rd", ":RustDebuggables<CR>", true)
-
 nnoremap("<F5>", "<cmd>lua require'dap'.continue()<CR>", true)
 nnoremap("<F10>", "<cmd>lua require'dap'.step_over()<CR>", true)
 nnoremap("<F11>", "<cmd>lua require'dap'.step_into()<CR>", true)
