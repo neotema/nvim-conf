@@ -41,3 +41,5 @@ vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("eol:↴")
 
 vim.opt.laststatus = 3
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
