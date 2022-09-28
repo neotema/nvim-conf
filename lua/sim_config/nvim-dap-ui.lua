@@ -1,18 +1,5 @@
 require("dapui").setup({
-  icons = { expanded = "▾", collapsed = "▸" },
-
-  lspconfig = {
-    cmd = { "lua-language-server" },
-    on_attach = function(c, b)
-    end,
-    settings = {
-      Lua = {
-        hint = {
-          enable = true,
-        },
-      },
-    },
-  },
+  icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
   mappings = {
     -- Use a table to apply multiple mappings
     expand = { "<CR>", "<2-LeftMouse>" },
@@ -35,11 +22,8 @@ require("dapui").setup({
   layouts = {
     {
       elements = {
-        -- Elements can be strings or table with id and size keys.
-        {
-          id = "scopes",
-          size = 0.25,
-        },
+      -- Elements can be strings or table with id and size keys.
+        { id = "scopes", size = 0.25 },
         "breakpoints",
         "stacks",
         "watches",
@@ -56,6 +40,21 @@ require("dapui").setup({
       position = "bottom",
     },
   },
+  controls = {
+    enabled = true,
+    -- Display controls in this element
+    element = "repl",
+    icons = {
+      pause = "",
+      play = "",
+      step_into = "",
+      step_over = "",
+      step_out = "",
+      step_back = "",
+      run_last = "↻",
+      terminate = "□",
+    },
+  },
   floating = {
     max_height = nil, -- These can be integers or a float between 0 and 1.
     max_width = nil, -- Floats will be treated as percentage of your screen.
@@ -67,5 +66,6 @@ require("dapui").setup({
   windows = { indent = 1 },
   render = {
     max_type_length = nil, -- Can be integer or nil.
-  },
+    max_value_lines = 100, -- Can be integer or nil.
+  }
 })

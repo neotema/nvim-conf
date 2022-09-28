@@ -6,11 +6,11 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local rt = require("rust-tools")
--- local rtdap = require("rust-tools.dap")
+local rtdap = require("rust-tools.dap")
 -- local extension_path = "$HOME/codelldb-x86/extension/"
--- local extension_path = "/Users/arch/codelldb-x86/extension/"
--- local codelldb_path = extension_path .. "adapter/codelldb"
--- local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
+local extension_path = "/Users/arch/codelldb-x86/extension/"
+local codelldb_path = extension_path .. "adapter/codelldb"
+local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
 
 rt.setup({
   tools = {
@@ -64,11 +64,11 @@ rt.setup({
     end,
   },
   dap = {
-    adapter = {
-      type = "executable",
-      command = "lldb-vscode",
-      name = "rt_lldb",
-    },
-    -- adapter = rtdap.get_codelldb_adapter(codelldb_path, liblldb_path),
+    -- adapter = {
+    --   type = "executable",
+    --   command = "lldb-vscode",
+    --   name = "rt_lldb",
+    -- },
+    adapter = rtdap.get_codelldb_adapter(codelldb_path, liblldb_path),
   },
 })

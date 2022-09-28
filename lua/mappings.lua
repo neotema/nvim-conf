@@ -121,3 +121,6 @@ nnoremap(
 )
 nnoremap("<Leader>dr", "<cmd>lua require'dap'.repl.open()<CR>", true)
 nnoremap("<Leader>dl", "<cmd>lua require'dap'.run_last()<CR>", true)
+nnoremap("<Leader>dt", "<cmd>lua require'dapui'.toggle()<CR>", true)
+nnoremap("<Leader>dc", "<cmd>lua require'dapui'.close()<CR>", true)
+nnoremap("<Leader>do", "<cmd>lua require'dapui'.open()<CR>", true)
