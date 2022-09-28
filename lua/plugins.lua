@@ -48,7 +48,7 @@ require("packer").startup(function(use)
     "akinsho/toggleterm.nvim",
     config = function()
       require("toggleterm").setup({
-        open_mapping = [[<Leader>tt]],
+        open_mapping = [[<Leader>;]],
         insert_mappings = false,
         direction = "vertical",
         size = 60,
