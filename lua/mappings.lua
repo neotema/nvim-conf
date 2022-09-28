@@ -102,3 +102,23 @@ inoremap(
   "<C-f>",
   '<Esc> :lua require("utils/telescope").search_in_buffer()<CR>'
 )
+
+-- Rust Tool
+
+nnoremap("<F5>", "<cmd>lua require'dap'.continue()<CR>", true)
+nnoremap("<F10>", "<cmd>lua require'dap'.step_over()<CR>", true)
+nnoremap("F11>", "<cmd>lua require'dap'.step_into()<CR>", true)
+nnoremap("<F12>", "<cmd>lua require'dap'.step_out()<CR>", true)
+nnoremap("<Leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", true)
+nnoremap(
+  "<Leader>B",
+  "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+  true
+)
+nnoremap(
+  "<Leader>lp",
+  "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>",
+  true
+)
+nnoremap("<Leader>dr", "<cmd>lua require'dap'.repl.open()<CR>", true)
+nnoremap("<Leader>dl", "<cmd>lua require'dap'.run_last()<CR>", true)
