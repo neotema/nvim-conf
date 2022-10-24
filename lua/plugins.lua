@@ -134,7 +134,7 @@ require("packer").startup(function(use)
   use("p00f/nvim-ts-rainbow")
 
   -- Lua dev
-  use("folke/lua-dev.nvim")
+  use("folke/neodev.nvim")
   use("ckipp01/stylua-nvim")
   -- flutter
   use("akinsho/flutter-tools.nvim")

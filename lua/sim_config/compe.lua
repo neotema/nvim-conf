@@ -17,16 +17,22 @@ cmp.setup({
       require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
     end,
   },
-  mapping = {
-    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    -- ["<C-u>"] = cmp.mapping.scroll_docs(4),
+
+  --   -- ["<C-u>"] = cmp.mapping.scroll_docs(4),
+  --   ["<C-Space>"] = cmp.mapping.complete(),
+  --   ["<C-e>"] = cmp.mapping.close(),
+  --   ["<C-b>"] = cmp.mapping.abort(),
+  --   ["<CR>"] = cmp.mapping.confirm({ select = true }),
+  --   ["<Tab>"] = cmp.mapping.select_next_item(cmp.SelectBehavior.Insert),
+  --   ["<S-Tab>"] = cmp.mapping.select_prev_item(cmp.SelectBehavior.Insert),
+  -- },
+  mapping = cmp.mapping.preset.insert({
+    ["<C-x>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-i>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
-    ["<C-e>"] = cmp.mapping.close(),
-    ["<C-b>"] = cmp.mapping.abort(),
-    ["<CR>"] = cmp.mapping.confirm({ select = true }),
-    ["<Tab>"] = cmp.mapping.select_next_item(cmp.SelectBehavior.Insert),
-    ["<S-Tab>"] = cmp.mapping.select_prev_item(cmp.SelectBehavior.Insert),
-  },
+    ["<C-e>"] = cmp.mapping.abort(),
+    ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
