@@ -125,6 +125,7 @@ require("packer").startup(function(use)
 
   -- snips
   use("L3MON4D3/LuaSnip")
+  use("rafamadriz/friendly-snippets")
 
   -- tree-sitter
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })

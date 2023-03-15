@@ -57,22 +57,22 @@ lspconfig.clangd.setup({
   end,
 })
 -- lspconfig.pylsp.setup({ capabilities = capabilities })
-require("lspconfig").pyright.setup({
-  capabilities = capabilities,
-  cmd = { "pyright-python-langserver", "--stdio" },
-  settings = {
-    python = {
-      analysis = {
-        typeCheckingMode = "basic",
-        diagnosticMode = "workspace",
-        inlayHints = {
-          variableTypes = true,
-          functionReturnTypes = true,
-        },
-      },
-    },
-  },
-})
+-- require("lspconfig").pyright.setup({
+--   capabilities = capabilities,
+--   cmd = { "pyright-python-langserver", "--stdio" },
+--   settings = {
+--     python = {
+--       analysis = {
+--         typeCheckingMode = "basic",
+--         diagnosticMode = "workspace",
+--         inlayHints = {
+--           variableTypes = true,
+--           functionReturnTypes = true,
+--         },
+--       },
+--     },
+--   },
+-- })
 require("lspconfig").yamlls.setup({
   capabilities = capabilities,
   settings = {
@@ -86,34 +86,38 @@ require("lspconfig").yamlls.setup({
 -----------------------
 -- Lua
 -----------------------
-local luadev = require("neodev").setup({
-  lspconfig = {
-    capabilities = capabilities,
-    cmd = { "lua-language-server" },
-    on_attach = function(c, b)
-      ih.on_attach(c, b)
-    end,
-    settings = {
-      Lua = {
-        hint = {
-          enable = true,
-        },
-      },
-    },
-  },
-  settings = {
-    Lua = {
-      workspace = {
-        library = {
-          ["/usr/share/nvim/runtime/lua"] = true,
-          ["/usr/share/nvim/runtime/lua/lsp"] = true,
-          ["/usr/share/awesome/lib"] = true,
-        },
-      },
-    },
-  },
-})
-require("lspconfig").sumneko_lua.setup(luadev)
+-- local luadev = require("neodev").setup({
+--   -- lspconfig = {
+--   --   capabilities = capabilities,
+--   --   cmd = { "lua-language-server" },
+--   --   on_attach = function(c, b)
+--   --     ih.on_attach(c, b)
+--   --   end,
+--   --   settings = {
+--   --     Lua = {
+--   --       hint = {
+--   --         enable = true,
+--   --       },
+--   --     },
+--   --   },
+--   -- },
+--   lspconfig = true,
+--   settings = {
+--     Lua = {
+--       workspace = {
+--         library = {
+--           ["/usr/share/nvim/runtime/lua"] = true,
+--           ["/usr/share/nvim/runtime/lua/lsp"] = true,
+--           ["/usr/share/awesome/lib"] = true,
+--         },
+--       },
+--       diagnostics = {
+--         globals = { "vim" },
+--       },
+--     },
+--   },
+-- })
+-- require("lspconfig").sumneko_lua.setup(luadev)
 
 require("lspconfig").gopls.setup({
   on_attach = function(c, b)
@@ -134,12 +138,25 @@ require("lspconfig").gopls.setup({
   },
 })
 
--- require("lspconfig").sumneko_lua.setup({
---   settings = {
---     Lua = {
---       hint = {
---         enable = true,
---       },
---     },
---   },
--- })
+require("neodev").setup({})
+
+require("lspconfig").lua_ls.setup({
+  settings = {
+    Lua = {
+      runtime = {
+        version = "LuaJIT",
+      },
+      diagnostics = {
+        globals = { "vim" },
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+})
