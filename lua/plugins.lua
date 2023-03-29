@@ -96,11 +96,19 @@ require("packer").startup(function(use)
   -- lsp stuff
   -- =====================
   -- lsp stuff
+  -- use({
+  --   "williamboman/nvim-lsp-installer",
+  --   config = function()
+  --     require("nvim-lsp-installer").setup({})
+  --   end,
+  -- })
   use({
-    "williamboman/nvim-lsp-installer",
-    config = function()
-      require("nvim-lsp-installer").setup({})
-    end,
+    "williamboman/mason.nvim",
+    config = function() 
+      require("mason").setup({
+        PATH = "prepend",
+      })
+    end
   })
   use("neovim/nvim-lspconfig")
   use({
