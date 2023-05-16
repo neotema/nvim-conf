@@ -104,11 +104,11 @@ require("packer").startup(function(use)
   -- })
   use({
     "williamboman/mason.nvim",
-    config = function() 
+    config = function()
       require("mason").setup({
         PATH = "prepend",
       })
-    end
+    end,
   })
   use("neovim/nvim-lspconfig")
   use({
