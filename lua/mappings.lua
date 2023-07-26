@@ -131,3 +131,7 @@ nnoremap("<Leader>dt", "<cmd>lua require'dapui'.toggle()<CR>", true)
 nnoremap("<Leader>dc", "<cmd>lua require'dapui'.close()<CR>", true)
 nnoremap("<Leader>do", "<cmd>lua require'dapui'.open()<CR>", true)
 nnoremap("<Leader>rr", ":RustRun<CR>")
+
+-- Vista stuff
+nnoremap("<Leader>[", ":Vista<CR>", true)
+nnoremap("<Leader>]", ":Vista!<CR>", true)

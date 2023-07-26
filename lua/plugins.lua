@@ -76,7 +76,11 @@ require("packer").startup(function(use)
   -- Code actions ui thingy
   use("hood/popui.nvim")
   -- lsp progress thingy
-  use({ "j-hui/fidget.nvim", tag = "legacy" })
+  -- use({ "j-hui/fidget.nvim", tag = "legacy" })
+  use({
+    "j-hui/fidget.nvim",
+    tag = "legacy",
+  })
   -- startup screen
   use("mhinz/vim-startify")
 
@@ -150,13 +154,13 @@ require("packer").startup(function(use)
   use("folke/neodev.nvim")
   use("ckipp01/stylua-nvim")
   -- flutter
-  use("akinsho/flutter-tools.nvim")
+  -- use("akinsho/flutter-tools.nvim")
   -- ts
   use("jose-elias-alvarez/typescript.nvim")
   -- rust
   use("simrat39/rust-tools.nvim", { branch = "master" })
   use("simrat39/inlay-hints.nvim")
-  use("lvimuser/lsp-inlayhints.nvim")
+  -- use("lvimuser/lsp-inlayhints.nvim")
   -- Debugging
   use("nvim-lua/plenary.nvim")
   use("mfussenegger/nvim-dap")
@@ -170,7 +174,7 @@ require("packer").startup(function(use)
   -- which key
   use("anuvyklack/hydra.nvim")
   -- git
-  use("tpope/vim-fugitive")
+  -- use("tpope/vim-fugitive")
   -- use("antoinemadec/FixCursorHold.nvim")
   -- file trees
   use("kyazdani42/nvim-tree.lua")
