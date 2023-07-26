@@ -49,9 +49,13 @@ require("packer").startup(function(use)
     config = function()
       require("toggleterm").setup({
         open_mapping = [[<Leader>;]],
-        insert_mappings = false,
-        direction = "vertical",
-        size = 60,
+        -- insert_mappings = true,
+        -- direction = "float",
+        -- size = 60,
+        direction = "float",
+        float_opts = {
+          border = "double",
+        },
       })
     end,
   })
@@ -72,7 +76,7 @@ require("packer").startup(function(use)
   -- Code actions ui thingy
   use("hood/popui.nvim")
   -- lsp progress thingy
-  use({ "j-hui/fidget.nvim", as = "legacy" })
+  use({ "j-hui/fidget.nvim", tag = "legacy" })
   -- startup screen
   use("mhinz/vim-startify")
 
