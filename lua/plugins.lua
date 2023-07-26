@@ -251,6 +251,8 @@ require("packer").startup(function(use)
     ft = { "markdown" },
   })
 
+  use("liuchengxu/vista.vim")
+
   -- Leetcode
   -- use({ "ianding1/leetcode.vim" })  -- not working properly
 
