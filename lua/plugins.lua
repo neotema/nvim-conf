@@ -72,7 +72,7 @@ require("packer").startup(function(use)
   -- Code actions ui thingy
   use("hood/popui.nvim")
   -- lsp progress thingy
-  use("j-hui/fidget.nvim")
+  use({ "j-hui/fidget.nvim", as = "legacy" })
   -- startup screen
   use("mhinz/vim-startify")
 
@@ -260,5 +260,14 @@ require("packer").startup(function(use)
   --   config = function()
   --     require("pretty-fold").setup()
   --   end,
+  -- })
+  --
+
+  -- Tabby AI coding assitant
+  -- use({ "TabbyML/tabby", rtp = "clients/vim", enabled = true, as = "tabby" })
+  -- use({
+  --   "~/tabby/clients/vim",
+  --   as = "tabby",
+  --   enabled = true,
   -- })
 end)
