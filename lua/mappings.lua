@@ -47,26 +47,10 @@ vnoremap(">", ">gv")
 -- nnoremap("<C-j>", "<C-w>j")
 -- nnoremap("<C-k>", "<C-w>k")
 -- nnoremap("<C-l>", "<C-w>l")
-inoremap(
-  "<C-k>",
-  '<cmd>lua require("sim_config/luasnip").navigate(1)<CR>',
-  true
-)
-snoremap(
-  "<C-k>",
-  '<cmd>lua require("sim_config/luasnip").navigate(1)<CR>',
-  true
-)
-inoremap(
-  "<C-j>",
-  '<cmd>lua require("sim_config/luasnip").navigate(-1)<CR>',
-  true
-)
-snoremap(
-  "<C-j>",
-  '<cmd>lua require("sim_config/luasnip").navigate(-1)<CR>',
-  true
-)
+inoremap("<C-k>", '<cmd>lua require("sim_config/luasnip").navigate(1)<CR>', true)
+snoremap("<C-k>", '<cmd>lua require("sim_config/luasnip").navigate(1)<CR>', true)
+inoremap("<C-j>", '<cmd>lua require("sim_config/luasnip").navigate(-1)<CR>', true)
+snoremap("<C-j>", '<cmd>lua require("sim_config/luasnip").navigate(-1)<CR>', true)
 
 -- Map Ctrl-Backspace to delete the previous word in insert mode.
 inoremap("<C-w>", "<C-\\><C-o>dB")
@@ -101,10 +85,7 @@ vnoremap("<Leader>a", "<cmd>lua vim.lsp.buf.range_code_action()<CR>")
 -- Telescope
 nnoremap("<C-f>", ':lua require("utils/telescope").search_files()<CR>')
 nnoremap("/", ':lua require("utils/telescope").search_in_buffer()<CR>')
-inoremap(
-  "<C-f>",
-  '<Esc> :lua require("utils/telescope").search_in_buffer()<CR>'
-)
+inoremap("<C-f>", '<Esc> :lua require("utils/telescope").search_in_buffer()<CR>')
 
 -- Rust Tool
 nnoremap("<Leader>rd", ":RustDebuggables<CR>", true)
@@ -115,16 +96,8 @@ nnoremap("<F8>", "<cmd>lua require'dap'.step_into()<CR>", true)
 nnoremap("<F12>", "<cmd>lua require'dap'.step_out()<CR>", true)
 nnoremap("<F9>", "<cmd>lua require'dap'.step_out()<CR>", true)
 nnoremap("<Leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", true)
-nnoremap(
-  "<Leader>B",
-  "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
-  true
-)
-nnoremap(
-  "<Leader>lp",
-  "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>",
-  true
-)
+nnoremap("<Leader>B", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", true)
+nnoremap("<Leader>lp", "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", true)
 nnoremap("<Leader>dr", "<cmd>lua require'dap'.repl.open()<CR>", true)
 nnoremap("<Leader>dl", "<cmd>lua require'dap'.run_last()<CR>", true)
 nnoremap("<Leader>dt", "<cmd>lua require'dapui'.toggle()<CR>", true)
@@ -135,3 +108,6 @@ nnoremap("<Leader>rr", ":RustRun<CR>")
 -- Vista stuff
 nnoremap("<Leader>[", ":Vista<CR>", true)
 nnoremap("<Leader>]", ":Vista!<CR>", true)
+
+-- Split window
+nnoremap("<Leader>\\", ":vsp<CR>", true)

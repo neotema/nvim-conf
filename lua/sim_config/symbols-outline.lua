@@ -1,4 +1,4 @@
 vim.g.symbols_outline = {
-  auto_preview = true,
+  auto_preview = false,
   position = "left",
 }

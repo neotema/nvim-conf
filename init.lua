@@ -9,7 +9,7 @@ require("sim_config/compe")
 require("sim_config/dashboard-nvim")
 require("sim_config/diagnostics")
 require("sim_config/fidget")
-require("sim_config/flutter-tools")
+--require("sim_config/flutter-tools")
 require("sim_config/gitsigns")
 require("sim_config/hydra")
 require("sim_config/indent-blankline")
@@ -30,7 +30,7 @@ vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 require("catppuccin").setup({
   integration = {
     nvimtree = {
-      enabled = true,
+      enabled = false,
       show_root = false, -- makes the root folder not transparent
       transparent_panel = true, -- make the panel transparent
     },

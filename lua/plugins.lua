@@ -46,15 +46,16 @@ require("packer").startup(function(use)
 
   use({
     "akinsho/toggleterm.nvim",
+    tag = "*",
     config = function()
       require("toggleterm").setup({
         open_mapping = [[<Leader>;]],
-        -- insert_mappings = true,
+        insert_mappings = true,
         -- direction = "float",
         -- size = 60,
         direction = "float",
         float_opts = {
-          border = "double",
+          border = "single",
         },
       })
     end,
