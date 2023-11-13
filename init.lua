@@ -26,6 +26,10 @@ require("sim_config/tree-sitter")
 require("sim_config/typescript")
 require("sim_config/ui")
 
+-- tabby server
+vim.g.tabby_server_url = "http://127.0.0.1:8119"
+vim.g.tabby_agent_logs = "debug"
+
 vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 require("catppuccin").setup({
   integration = {

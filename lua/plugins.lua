@@ -50,13 +50,13 @@ require("packer").startup(function(use)
     config = function()
       require("toggleterm").setup({
         open_mapping = [[<Leader>;]],
-        insert_mappings = true,
+        -- insert_mappings = true,
+        direction = "vertical",
+        size = 60,
         -- direction = "float",
-        -- size = 60,
-        direction = "float",
-        float_opts = {
-          border = "single",
-        },
+        -- float_opts = {
+        --   border = "single",
+        -- },
       })
     end,
   })
@@ -81,6 +81,11 @@ require("packer").startup(function(use)
   use({
     "j-hui/fidget.nvim",
     tag = "legacy",
+    config = function()
+      require("fidget").setup({
+        -- options
+      })
+    end,
   })
   -- startup screen
   use("mhinz/vim-startify")
@@ -276,9 +281,13 @@ require("packer").startup(function(use)
 
   -- Tabby AI coding assitant
   -- use({ "TabbyML/tabby", rtp = "clients/vim", enabled = true, as = "tabby" })
-  -- use({
-  --   "~/tabby/clients/vim",
-  --   as = "tabby",
-  --   enabled = true,
-  -- })
+  use({
+    "~/tabby/clients/vim",
+    as = "tabby",
+    enabled = true,
+  })
+
+  use(
+    "edluffy/hologram.nvim"
+  )
 end)

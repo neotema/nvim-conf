@@ -58,10 +58,7 @@ vim.opt.foldenable = true
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
--- tabby server
--- vim.g.tabby_server_url = "http://localhost:8119"
--- vim.g.tabby_agent_logs = "debug"
--- vim.g.tabby_filetype_to_languages = {
+-- - vim.g.tabby_filetype_to_languages = {
 -- 		\ "bash": "shellscript",
 -- \ "cs": "csharp",
 -- \ "rs": "rust",

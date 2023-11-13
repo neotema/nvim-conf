@@ -9,7 +9,8 @@ local ih = require("inlay-hints")
 local rt = require("rust-tools")
 local rtdap = require("rust-tools.dap")
 -- local extension_path = "$HOME/codelldb-x86/extension/"
-local extension_path = "/Users/arch/codelldb-x86/extension/"
+-- use lldb from vscode extension
+local extension_path = "/Users/arch/.vscode/extensions/vadimcn.vscode-lldb-1.10.0/"
 local codelldb_path = extension_path .. "adapter/codelldb"
 local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
 
@@ -49,20 +50,19 @@ rt.setup({
   server = {
     on_attach = function(client, bufnr)
       -- ih.on_attach(client, bufnr)
-      vim.keymap.set(
-        "n",
-        "<C-space>",
-        rt.hover_actions.hover_actions,
-        { buffer = bufnr }
-      )
+      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
 
-      vim.keymap.set(
-        "n",
-        "<Leader>a",
-        rt.code_action_group.code_action_group,
-        { buffer = bufnr }
-      )
+      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
     end,
+    settings = {
+      ["rust-analyzer"] = {
+        cargo = {
+          buildScripts = {
+            enable = true,
+          },
+        },
+      },
+    },
   },
   dap = {
     -- adapter = {

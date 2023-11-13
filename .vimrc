@@ -97,15 +97,15 @@ let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 " let g:tabby_server_url = 'http://127.0.0.1:8119'
 " let g:tabby_enable = v:true
-let g:tabby_filetype_to_languages = {
-		\ "bash": "shellscript",
-		\ "rs": "rust",
-    \ "js": "javascript",
-    \ "jsx": "javascriptreact",
-    \ "go": "go",
-    \ "html": "html",
-    \ "css": "css",
-    \ "less": "less",
-    \ "scss": "scss"
-		\ }
-let g:tabby_agent_logs = 'debug'
+" let g:tabby_filetype_to_languages = {
+" 		\ "bash": "shellscript",
+" 		\ "rs": "rust",
+"     \ "js": "javascript",
+"     \ "jsx": "javascriptreact",
+"     \ "go": "go",
+"     \ "html": "html",
+"     \ "css": "css",
+"     \ "less": "less",
+"     \ "scss": "scss"
+" 		\ }
+" let g:tabby_agent_logs = 'debug'
